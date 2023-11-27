@@ -10,7 +10,7 @@ let lastPlayersTouched
 
 HaxballJS.then(async(HBInit) => {
   const room = HBInit({
-    roomName: "Haxball botu yazmaya çalışıyorum pORNO",
+    roomName: "House Lazım",
     maxPlayers: 16,
     public: true,
     noPlayer: true,
@@ -23,8 +23,6 @@ HaxballJS.then(async(HBInit) => {
   room.setScoreLimit(5);
   room.setTimeLimit(0);
   room.setTeamsLock(true)
-  room.setPassword("feriabi123")
-
 
   room.setTeamColors(2, 0, 0x000000, [0x2B00FF, 0xF1FFF0]);
   room.setTeamColors(1, 0, 0x000000, [0xD10000, 0xF1FFF0]);
@@ -50,7 +48,10 @@ HaxballJS.then(async(HBInit) => {
   }
 
   room.onPlayerBallKick = (player)=>{
-    lastPlayersTouched = player.name
+    lastPlayersTouched = {
+      name: player.name,
+      team: player.team
+    }
   }
 
   room.onTeamVictory = (team)=>{
